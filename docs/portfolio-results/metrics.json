@@ -1,0 +1,105 @@
+{
+  "subtitle": "Recorded downstream comparisons and a locked 10,000-variant replication; no new training run.",
+  "panels": [
+    {
+      "title": "Token-JEPA · paired AUROC difference",
+      "kind": "interval",
+      "labels": [
+        "local:promoter",
+        "local:splice",
+        "external:human_tf_0",
+        "external:mouse_0"
+      ],
+      "values": [
+        0.00314,
+        0.00692,
+        -0.00019262101,
+        -0.027116059173
+      ],
+      "low": [
+        -0.003148714139,
+        -0.000196252729,
+        -0.00915524355,
+        -0.048986026864
+      ],
+      "high": [
+        0.009429993787,
+        0.013703983835,
+        0.00930227092,
+        -0.005902986324
+      ],
+      "xlabel": "AUROC delta · post hoc intervals",
+      "xlim": [
+        -0.055,
+        0.022
+      ]
+    },
+    {
+      "title": "Variant cosine score · 3 seeds",
+      "kind": "interval",
+      "labels": [
+        "Pretrained",
+        "MLM last layer",
+        "JEPA last layer",
+        "MLM + JEPA"
+      ],
+      "values": [
+        0.50985396,
+        0.51027388,
+        0.512858326667,
+        0.512684993333
+      ],
+      "low": [
+        0.50985396,
+        0.51020008151,
+        0.512492061555,
+        0.512392210016
+      ],
+      "high": [
+        0.50985396,
+        0.51034767849,
+        0.513224591778,
+        0.512977776651
+      ],
+      "reference": 0.5,
+      "xlabel": "Mean AUROC ± seed SD",
+      "xlim": [
+        0.498,
+        0.523
+      ]
+    }
+  ],
+  "boundary": "Local/external downstream results use one seed and post hoc intervals. The gate was not reopened.\nThe variant AUROC values remain close to 0.5; these data do not establish clinical variant interpretation.",
+  "sources": [
+    "outputs/comprehensive_negative_figures/figure1_plot_data.csv",
+    "VALIDATION.md"
+  ],
+  "interpretation": "Local task의 작은 양의 차이는 외부 과제에서 일관되게 유지되지 않았다. 왼쪽 구간은 단일 seed의 사후 구간이며, 오른쪽은 고정된 10,000-variant 평가의 seed SD다. 두 종류의 구간을 같은 통계량으로 읽으면 안 된다.",
+  "progress": [
+    [
+      "JEPA 학습·평가 코드",
+      "구현 및 기존 비교 결과 보유"
+    ],
+    [
+      "공개본 검증",
+      "26개 테스트, CPU synthetic 8-step 학습 완료"
+    ],
+    [
+      "대규모 재학습",
+      "이번 문서 작업에서 미실행"
+    ],
+    [
+      "일관된 downstream 개선",
+      "현재 기록만으로 확정하지 않음"
+    ]
+  ],
+  "next": [
+    "선택 과정과 분리된 seed·task 재현 설계",
+    "동일한 학습 예산의 MLM 비교 및 불확실성 보고",
+    "표현 손실 감소와 생물학적 예측 성능 개선의 관계 검토"
+  ],
+  "security": "모델 키·학습 checkpoint·원시 유전체는 공개하지 않았다. 실제 입력의 민감성과 외부 모델 download·학습 결과 공개 범위는 별도로 관리해야 한다.",
+  "title": "JEPA-GLM | Evidence snapshot",
+  "schema_version": "1",
+  "created_on": "2026-09-29"
+}
