@@ -1,0 +1,43 @@
+seed: 7
+mode: mlm_last1
+training:
+  steps: 1000
+  batch_size: 1
+  learning_rate: 1.0e-05
+  min_learning_rate: 1.0e-06
+  weight_decay: 0.01
+  gradient_accumulation_steps: 16
+  max_grad_norm: 1.0
+  mixed_precision: true
+  scheduler: cosine
+  validation_fraction: 0.0
+  ema_momentum: 0.996
+  log_every: 1
+data:
+  synthetic: false
+  sequence_length: 512
+  stride: 512
+  mask_ratio: 0.3
+  mask_span_length: 8
+  fasta_path: data/GRCh38.fa
+  manifest_csv: outputs/grch38_windows.csv
+  split: train
+  max_windows: 10000
+model:
+  backbone_name: zhihan1996/DNABERT-2-117M
+  local_model_dir: models/dnabert2-117m
+  tokenizer:
+    type: hf
+    name: models/dnabert2-117m
+    trust_remote_code: true
+  trust_remote_code: true
+  freeze_policy: encoder_last_n
+  trainable_last_n_layers: 1
+  gradient_checkpointing: false
+  pooling: mean
+  predictor_layers: 1
+  max_length: 128
+loss:
+  lambda_jepa: 0.0
+  lambda_mlm: 1.0
+  lambda_reg: 0.0

@@ -1,0 +1,21 @@
+panel,candidate,task,estimate,ci_lower,ci_upper,statistic,n_seeds,boundary
+A,Predictor LR JEPA,promoter,-0.002440000000,,,AUROC delta,,single-seed development; futility stop
+A,Predictor LR JEPA,splice,-0.004144000000,,,AUROC delta,,single-seed development; futility stop
+A,Predictor LR MLM+JEPA,promoter,-0.000864000000,,,AUROC delta,,single-seed development; futility stop
+A,Predictor LR MLM+JEPA,splice,-0.000552000000,,,AUROC delta,,single-seed development; futility stop
+A,Reverse complement JEPA,promoter,-0.000672000000,,,AUROC delta,,single-seed development; futility stop
+A,Reverse complement JEPA,splice,0.000284000000,,,AUROC delta,,single-seed development; futility stop
+A,Global CLS-JEPA,promoter,-0.016132000000,,,AUROC delta,,single-seed development; futility stop
+A,Global CLS-JEPA,splice,-0.006100000000,,,AUROC delta,,single-seed development; futility stop
+B,Token-JEPA,local:promoter,0.003140000000,-0.003148714139,0.009429993787,paired AUROC delta,1,post hoc interval; gate not reopened
+B,Token-JEPA,local:splice,0.006920000000,-0.000196252729,0.013703983835,paired AUROC delta,1,post hoc interval; gate not reopened
+B,Token-JEPA,external:human_tf_0,-0.000192621010,-0.009155243550,0.009302270920,paired AUROC delta,1,post hoc interval; gate not reopened
+B,Token-JEPA,external:mouse_0,-0.027116059173,-0.048986026864,-0.005902986324,paired AUROC delta,1,post hoc interval; gate not reopened
+C,pretrained_glm,cosine,0.509853960000,0.509853960000,0.509853960000,mean AUROC +/- seed SD,3,"10,000-variant locked replication"
+C,pretrained_glm,l2,0.506549260000,0.506549260000,0.506549260000,mean AUROC +/- seed SD,3,"10,000-variant locked replication"
+C,mlm_last1,cosine,0.510273880000,0.510200081510,0.510347678490,mean AUROC +/- seed SD,3,"10,000-variant locked replication"
+C,mlm_last1,l2,0.506611186667,0.506546259426,0.506676113907,mean AUROC +/- seed SD,3,"10,000-variant locked replication"
+C,jepa_last1,cosine,0.512858326667,0.512492061555,0.513224591778,mean AUROC +/- seed SD,3,"10,000-variant locked replication"
+C,jepa_last1,l2,0.507238193333,0.507075213074,0.507401173593,mean AUROC +/- seed SD,3,"10,000-variant locked replication"
+C,mlm_jepa_last1,cosine,0.512684993333,0.512392210016,0.512977776651,mean AUROC +/- seed SD,3,"10,000-variant locked replication"
+C,mlm_jepa_last1,l2,0.507198040000,0.507037992172,0.507358087828,mean AUROC +/- seed SD,3,"10,000-variant locked replication"

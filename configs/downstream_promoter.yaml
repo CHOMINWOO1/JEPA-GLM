@@ -1,0 +1,11 @@
+seed: 7
+task: promoter
+model:
+  checkpoint: outputs/best_checkpoint.pt
+  pooling: mean
+  tokenizer:
+    type: dna
+evaluation:
+  metric: auroc
+  train_fraction: 0.8
+  batch_size: 16

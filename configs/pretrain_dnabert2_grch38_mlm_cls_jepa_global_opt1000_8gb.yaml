@@ -1,0 +1,68 @@
+seed: 7
+mode: mlm_cls_jepa_global_last2_opt1000_8gb
+training:
+  optimizer: sgd
+  sgd_momentum: 0.9
+  optimizer_steps: 1000
+  batch_size: 1
+  learning_rate: 5.0e-06
+  backbone_learning_rate: 5.0e-06
+  predictor_learning_rate: 5.0e-06
+  mlm_head_learning_rate: 5.0e-06
+  min_learning_rate: 1.0e-06
+  predictor_warmup_steps: 250
+  predictor_warmup_learning_rate: 1.0e-05
+  joint_warmup_steps: 50
+  warmup_start_learning_rate: 3.0e-06
+  weight_decay: 0.01
+  gradient_accumulation_steps: 16
+  max_grad_norm: 1.0
+  mixed_precision: true
+  scheduler: warmup_cosine
+  validation_fraction: 0.02
+  ema_momentum_start: 0.996
+  ema_momentum_end: 1.0
+  log_every: 160
+data:
+  synthetic: false
+  sequence_length: 512
+  stride: 512
+  mask_type: multi_region_span
+  mask_strategy: multi_region_span
+  min_mask_ratio: 0.20
+  max_mask_ratio: 0.40
+  min_mask_regions: 1
+  max_mask_regions: 3
+  fasta_path: data/GRCh38.fa
+  manifest_csv: outputs/grch38_windows.csv
+  split: train
+  max_windows: 30000
+model:
+  backbone_name: zhihan1996/DNABERT-2-117M
+  local_model_dir: models/dnabert2-117m
+  tokenizer:
+    type: hf
+    name: models/dnabert2-117m
+    trust_remote_code: true
+  trust_remote_code: true
+  local_files_only: true
+  freeze_policy: encoder_last_n
+  trainable_last_n_layers: 2
+  gradient_checkpointing: true
+  pooling: cls
+  jepa_target_mode: cls
+  target_encoder_eval_mode: true
+  predictor_embed_dim: 384
+  predictor_layers: 4
+  predictor_heads: 2
+  predictor_dropout: 0.0
+  regularization_queue_size: 128
+  max_length: 128
+  use_pretrained_mlm_head: true
+loss:
+  jepa_loss: cosine
+  lambda_jepa: 1.0
+  lambda_mlm: 1.0
+  lambda_var: 25.0
+  lambda_cov: 0.5
+  regularization_queue_gradient_rescale: true

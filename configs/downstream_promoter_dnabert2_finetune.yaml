@@ -1,0 +1,26 @@
+seed: 7
+task: promoter
+model:
+  backbone_name: zhihan1996/DNABERT-2-117M
+  local_model_dir: models/dnabert2-117m
+  local_files_only: true
+  trust_remote_code: true
+  freeze_policy: encoder_last_n
+  trainable_last_n_layers: 1
+  gradient_checkpointing: true
+  pooling: cls
+  max_length: 128
+  tokenizer:
+    type: hf
+    name: models/dnabert2-117m
+    trust_remote_code: true
+fine_tuning:
+  epochs: 3
+  batch_size: 4
+  gradient_accumulation_steps: 4
+  encoder_learning_rate: 2.0e-05
+  classifier_learning_rate: 1.0e-03
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  dropout: 0.1
+  mixed_precision: true

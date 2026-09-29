@@ -1,0 +1,18 @@
+seed: 7
+task: promoter
+model:
+  backbone_name: zhihan1996/DNABERT-2-117M
+  local_model_dir: models/dnabert2-117m
+  local_files_only: true
+  trust_remote_code: true
+  freeze_policy: all
+  pooling: mean
+  max_length: 128
+  tokenizer:
+    type: hf
+    name: models/dnabert2-117m
+    trust_remote_code: true
+evaluation:
+  metric: auroc
+  train_fraction: 0.8
+  batch_size: 4

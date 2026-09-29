@@ -1,0 +1,13 @@
+panel,task,candidate,optimizer_updates,auroc,stronger_reference_auroc,auroc_delta,n_seeds,statistic,boundary
+A,promoter,jepa_mask50_last2,100,0.848972000000,0.848940000000,0.000032000000,1,AUROC delta vs stronger pretrained or MLM control,single-seed subset-limited feasibility; non-confirmatory
+A,promoter,jepa_mask50_last2,500,0.848988000000,0.848940000000,0.000048000000,1,AUROC delta vs stronger pretrained or MLM control,single-seed subset-limited feasibility; non-confirmatory
+A,promoter,jepa_mask50_last2,1000,0.848772000000,0.848940000000,-0.000168000000,1,AUROC delta vs stronger pretrained or MLM control,single-seed subset-limited feasibility; non-confirmatory
+B,splice,jepa_mask50_last2,100,0.758628000000,0.758712000000,-0.000084000000,1,AUROC delta vs stronger pretrained or MLM control,single-seed subset-limited feasibility; non-confirmatory
+B,splice,jepa_mask50_last2,500,0.758500000000,0.758712000000,-0.000212000000,1,AUROC delta vs stronger pretrained or MLM control,single-seed subset-limited feasibility; non-confirmatory
+B,splice,jepa_mask50_last2,1000,0.758740000000,0.758712000000,0.000028000000,1,AUROC delta vs stronger pretrained or MLM control,single-seed subset-limited feasibility; non-confirmatory
+A,promoter,mlm_jepa_mask50_last2,100,0.848948000000,0.848940000000,0.000008000000,1,AUROC delta vs stronger pretrained or MLM control,single-seed subset-limited feasibility; non-confirmatory
+A,promoter,mlm_jepa_mask50_last2,500,0.848956000000,0.848940000000,0.000016000000,1,AUROC delta vs stronger pretrained or MLM control,single-seed subset-limited feasibility; non-confirmatory
+A,promoter,mlm_jepa_mask50_last2,1000,0.848856000000,0.848940000000,-0.000084000000,1,AUROC delta vs stronger pretrained or MLM control,single-seed subset-limited feasibility; non-confirmatory
+B,splice,mlm_jepa_mask50_last2,100,0.758624000000,0.758712000000,-0.000088000000,1,AUROC delta vs stronger pretrained or MLM control,single-seed subset-limited feasibility; non-confirmatory
+B,splice,mlm_jepa_mask50_last2,500,0.758476000000,0.758712000000,-0.000236000000,1,AUROC delta vs stronger pretrained or MLM control,single-seed subset-limited feasibility; non-confirmatory
+B,splice,mlm_jepa_mask50_last2,1000,0.758794000000,0.758712000000,0.000082000000,1,AUROC delta vs stronger pretrained or MLM control,single-seed subset-limited feasibility; non-confirmatory

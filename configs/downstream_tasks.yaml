@@ -1,0 +1,17 @@
+tasks:
+  - id: promoter
+    label: Promoter classification
+    source_id: promoter_benchmark
+    raw_csv: data/promoter_raw.csv
+    split_csv: outputs/promoter_split.csv
+    validation_json: outputs/promoter_split.validation.json
+    metrics_json: outputs/promoter_probe.json
+    required_for_paper_claims: true
+  - id: splice
+    label: Splice-site classification
+    source_id: splice_benchmark
+    raw_csv: data/splice_raw.csv
+    split_csv: outputs/splice_split.csv
+    validation_json: outputs/splice_split.validation.json
+    metrics_json: outputs/splice_probe.json
+    required_for_paper_claims: true

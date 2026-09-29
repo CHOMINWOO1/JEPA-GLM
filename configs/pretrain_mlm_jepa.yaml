@@ -1,0 +1,38 @@
+seed: 7
+mode: mlm_jepa
+training:
+  steps: 8
+  batch_size: 4
+  learning_rate: 0.0005
+  min_learning_rate: 0.00005
+  weight_decay: 0.01
+  gradient_accumulation_steps: 1
+  max_grad_norm: 1.0
+  mixed_precision: false
+  scheduler: cosine
+  validation_fraction: 0.1
+  ema_momentum: 0.996
+  log_every: 1
+data:
+  synthetic: true
+  num_sequences: 128
+  sequence_length: 128
+  stride: 128
+  mask_ratio: 0.30
+  mask_span_length: 12
+model:
+  vocab_size: 8
+  hidden_size: 64
+  max_length: 256
+  backbone_name: null
+  tokenizer:
+    type: dna
+  freeze_policy: none
+  freeze_backbone: false
+  gradient_checkpointing: false
+  pooling: mean
+  predictor_layers: 2
+loss:
+  lambda_jepa: 1.0
+  lambda_mlm: 0.25
+  lambda_reg: 0.02
